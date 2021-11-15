@@ -1,13 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-axios
-  .get("https://restcountries.com/v2/all", {
-    timeout: 1000,
-  })
-  .then((res) => console.log(res))
-  .catch((err) => console.error(err));
-
 const baseURL = "https://restcountries.com/v2/all";
 
 export default function Countries() {
