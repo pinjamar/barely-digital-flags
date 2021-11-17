@@ -25,51 +25,80 @@ export default function SelectedCountry() {
 
   return (
     <div className="selected-country" key={countries[0].name}>
-      <div className="flag">
+      <div className="selected-flag">
         <img src={countries[0].flag} alt="" />
       </div>
       <div className="country-details">
-        <h1 className="country-name">{countries[0].name}</h1>
-        <div className="country-info">
+        <h1 className="selected-country-name">{countries[0].name}</h1>
+        <div className="selected-country-info">
           <div className="country-basic-info">
-            <span>Native name: {countries[0].nativeName}</span>
-            <span>Population: {countries[0].population}</span>
-            <span>Region: {countries[0].region}</span>
-            <span>Sub region: {countries[0].subregion}</span>
-            <span>Capital: {countries[0].capital}</span>
+            <div className="specific-stat">
+              <span className="country-stat">Native name: </span>
+              <span>{countries[0].nativeName}</span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Population: </span>
+              <span>{countries[0].population}</span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Region: </span>
+              <span>{countries[0].region}</span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Sub region: </span>
+              <span>{countries[0].subregion}</span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Capital: </span>
+              <span>{countries[0].capital}</span>
+            </div>
           </div>
-          <div>
-            <span>Top level domain: {countries[0].topLevelDomain}</span>
-
-            {/* {
-              countries.map((country) => {
-                const { currencies } = country;
-                const { code, name, symbol } = currencies || {};
-                return <div>code: {`${code}, ${name}, ${symbol}`}</div>;
-              })[0]
-            } */}
-
-            {
-              countries.map((country) => {
-                const { languages } = country;
-                const { name } = languages;
-                return (
-                  <div>
-                    <span> {`Languages: ${name}`}</span>
-                  </div>
-                );
-              })[0]
-            }
+          <div className="additional-info">
+            <div className="specific-stat">
+              <span className="country-stat">Top level domain: </span>
+              <span>{countries[0].topLevelDomain}</span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Currencies: </span>
+              <span>
+                {countries[0].currencies
+                  .map((currency) => {
+                    return currency.name;
+                  })
+                  .join(", ")}
+              </span>
+            </div>
+            <div className="specific-stat">
+              <span className="country-stat">Languages: </span>
+              <span>
+                {countries[0].languages
+                  .map((language) => {
+                    return language.name;
+                  })
+                  .join(", ")}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="borders">
+          <span className="country-stat">Border countries: </span>
+          <span>
             {
               countries.map((country) => {
                 if (country.borders) {
-                  return <div>{country.borders}</div>;
+                  return (
+                    <div className="bordering-country">
+                      {country.borders
+                        .join(" ")
+                        .replace(`${country.borders}`, `${country.name}`)}
+                    </div>
+                  );
                 } else {
-                  return <div>No borders</div>;
+                  return <div className="specific-stat">No borders</div>;
                 }
               })[0]
             }
-          </div>
+          </span>
         </div>
       </div>
     </div>

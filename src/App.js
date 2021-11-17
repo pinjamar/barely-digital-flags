@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
@@ -7,20 +7,15 @@ import Country from "./pages/Country";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Country />
-        <Home />
-      </div>
-      {/* <Route path="/">
-        <Home />
-      </Route>
+    <div className="App">
+      <Header />
 
-      <Route path="/country">
-        <Home />
-      </Route> */}
-    </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/country" element={<Country />} />
+      </Routes>
+    </div>
   );
 }
 

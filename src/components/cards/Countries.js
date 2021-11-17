@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import "./Countries.css";
+
 const baseURL = "https://restcountries.com/v2/all";
 
 export default function Countries() {
