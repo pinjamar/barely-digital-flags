@@ -1,24 +1,2 @@
 .App {
-<<<<<<< HEAD
-  color: var(--text-primary);
-  background-color: var(--background);
-  font-size: large;
-  font-weight: bold;
-  padding: 20px;
-  height: calc(100vh - 40px);
-  transition: all 0.5s;
-}
-
-.title {
-  display: flex;
-  justify-content: space-between;
-}
-
-.setting-theme {
-  color: var(--text-primary);
-  background-color: var(--background);
-  border: 2px var(--text-primary) solid;
-  transition: all 0.5s;
-=======
->>>>>>> c451c50e095f9856de776cf7c3b8139f45b91e6f
 }
