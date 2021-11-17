@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Country from "./pages/Country";
+import useLocalStorage from "use-local-storage";
 
 function App() {
+  const defaultDark = window.matchMedia("(prefers-color-scheme: Dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "Dark" : "Light"
+  );
+
+  const switchTheme = () => {
+    const newTheme = theme === "Light" ? "Dark" : "Light";
+    setTheme(newTheme);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" data-theme={theme}>
+      <div className="title">
+        <h1>Where in the world?</h1>
+        <button onClick={switchTheme} className="setting-theme">
+          {theme === "Light" ? "Dark" : "Light"} Mode
+        </button>
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/country" element={<Country />} />
+      </Routes>
     </div>
   );
 }

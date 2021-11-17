@@ -1,0 +1,38 @@
+.countries-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.country {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flag {
+  width: 100%;
+}
+
+img {
+  height: 300px;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.country-name {
+  margin-left: 30px;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  margin: 30px 30px;
+}
