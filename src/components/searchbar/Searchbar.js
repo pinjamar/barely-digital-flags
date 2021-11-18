@@ -20,6 +20,23 @@ export default function SearchBar() {
       });
   }, []);
 
+  const CountryDetail = (props) => {
+    const { name, flag } = props;
+
+    return (
+      <div>
+        <p>
+          <img
+            src={flag}
+            alt={name}
+            style={{ width: "50px", height: "30px" }}
+          />
+        </p>
+        <p>{name}</p>
+      </div>
+    );
+  };
+
   useEffect(() => {
     setFilteredCountries(
       countries.filter((country) =>
@@ -37,24 +54,11 @@ export default function SearchBar() {
         id="searchBar"
       />
 
-      {filteredCountries.map((country, idx) => (
+      {/* {filteredCountries.map((country, idx) => (
         <div>
           <CountryDetail key={idx} {...country} />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }
-
-const CountryDetail = (props) => {
-  const { name, flag } = props;
-
-  return (
-    <div>
-      <p>
-        <img src={flag} alt={name} style={{ width: "50px", height: "30px" }} />
-      </p>
-      <p>{name}</p>
-    </div>
-  );
-};

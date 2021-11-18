@@ -3,16 +3,6 @@ import axios from "axios";
 
 import "./SelectedCountry.css";
 
-<<<<<<< HEAD
-=======
-axios
-  .get("https://restcountries.com/v2/all", {
-    timeout: 1000,
-  })
-  .then((res) => console.log(res))
-  .catch((err) => console.error(err));
-
->>>>>>> c451c50e095f9856de776cf7c3b8139f45b91e6f
 const baseURL = "https://restcountries.com/v2/all";
 
 export default function SelectedCountry() {

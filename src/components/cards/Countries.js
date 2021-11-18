@@ -28,15 +28,6 @@ export default function Countries() {
             <span>Population: {country.population}</span>
             <span>Region: {country.region}</span>
             <span>Capital: {country.capital}</span>
-<<<<<<< HEAD
-=======
-            <div>Languages:</div>
-            {countries[0].languages
-              .map((language) => {
-                return language.name;
-              })
-              .join(", ")}
->>>>>>> c451c50e095f9856de776cf7c3b8139f45b91e6f
           </div>
         </div>
       ))}

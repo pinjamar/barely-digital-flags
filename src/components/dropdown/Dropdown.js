@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
 import "./Dropdown.css";
 
-=======
->>>>>>> c451c50e095f9856de776cf7c3b8139f45b91e6f
 const baseURL = "https://restcountries.com/v2/all";
 
 export default function Dropdown() {
