@@ -15,6 +15,16 @@ export default function Dropdown() {
   }, []);
 
   if (!countries) return null;
+
+  const regions = [];
+
+  countries.forEach((country) => {
+    if (!regions.includes(country.region)) {
+      regions.push(country.region);
+    }
+  });
+
+  console.log(regions);
   return (
     <div className="dropdown">
       <div className="control">
@@ -22,9 +32,9 @@ export default function Dropdown() {
         <div className="arrow"></div>
       </div>
       <div className="options">
-        {countries.map((country) => (
-          <div className="option">{country.region}</div>
-        ))}
+        {regions.map((region) => {
+          return <div>{region}</div>;
+        })}
       </div>
     </div>
   );

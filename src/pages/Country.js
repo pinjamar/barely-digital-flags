@@ -1,6 +1,5 @@
 import React from "react";
 import Countries from "../components/cards/Countries";
-import Find from "../components/searchbar/Searchbar";
 import Dropdown from "../components/dropdown/Dropdown";
 import SelectedCountry from "../components/cards/SelectedCountry";
 import { Link } from "react-router-dom";

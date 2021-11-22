@@ -5,8 +5,9 @@ import "./Countries.css";
 
 const baseURL = "https://restcountries.com/v2/all";
 
-export default function Countries() {
+export default function Countries(props) {
   const [countries, setCountry] = React.useState(null);
+  const { search } = props;
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
@@ -16,9 +17,16 @@ export default function Countries() {
 
   if (!countries) return null;
 
+  var filteredCountries = countries;
+
+  if (search) {
+    filteredCountries = countries.filter((country) => {
+      return country.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }
   return (
     <div className="countries-grid">
-      {countries.map((country) => (
+      {filteredCountries.map((country) => (
         <div className="country" key={country.name}>
           <div className="flag">
             <img src={country.flag} alt="" />
