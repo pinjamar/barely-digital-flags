@@ -10,6 +10,8 @@
   grid-gap: 20px;
 }
 
+/*SEARCHBAR*/
+
 .searched-country {
   list-style-type: none;
   background-color: #eaeaea;
@@ -57,4 +59,26 @@
 
 #searchBar:focus {
   width: 120%;
+}
+
+/*FILTER*/
+
+.region-filter {
+  color: white;
+  padding: 0 1rem;
+}
+
+.region-filter__control {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.region-filter select {
+  font: inherit;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 6px;
 }

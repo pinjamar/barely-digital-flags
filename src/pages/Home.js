@@ -1,11 +1,30 @@
 import React from "react";
 import Countries from "../components/cards/Countries";
-import Dropdown from "../components/dropdown/Dropdown";
 
 import "./Home.css";
 
 function Home() {
   const [search, setSearch] = React.useState("");
+
+  const RegionFilter = () => {
+    return (
+      <div className="region-filter">
+        <div className="region-filter__control">
+          <select value="aaaa">
+            <option value="initial">Filter by region</option>
+            <option value="africa">Africa</option>
+            <option value="americas">Americas</option>
+            <option value="antarctic-ocean">AntAntarctic Ocean</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+            <option value="polar">Polar</option>
+          </select>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="search-and-filter">
@@ -18,7 +37,7 @@ function Home() {
           />
         </div>
         <div style={{ width: 300 }}>
-          <Dropdown />
+          <RegionFilter />
         </div>
       </div>
       <div>
