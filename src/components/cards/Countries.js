@@ -1,40 +1,37 @@
 import React from "react";
-import axios from "axios";
 
 import "./Countries.css";
 
-const baseURL = "https://restcountries.com/v2/all";
-
 export default function Countries(props) {
-  const [countries, setCountry] = React.useState(null);
-  const { search, filtered } = props;
-
-  React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setCountry(response.data);
-    });
-  }, []);
-
-  if (!countries) return null;
+  const { search, filtered, countries, onCountrySelected } = props;
 
   var filteredCountries = countries;
-  var filteredRegions = countries;
 
   if (filtered) {
-    filteredRegions = countries.filter((country) => {
-      return country.region.toLowerCase().includes(filtered.toLowerCase());
+    filteredCountries = countries.filter((country) => {
+      return country.region.includes(filtered);
     });
   }
 
   if (search) {
-    filteredCountries = countries.filter((country) => {
+    filteredCountries = filteredCountries.filter((country) => {
       return country.name.toLowerCase().includes(search.toLowerCase());
     });
   }
+  const countrySelector = (countryName) => {
+    onCountrySelected(countryName);
+  };
+
   return (
     <div className="countries-grid">
       {filteredCountries.map((country) => (
-        <div className="country" key={country.name}>
+        <div
+          onClick={(e) => {
+            countrySelector(country.name);
+          }}
+          className="country"
+          key={country.name}
+        >
           <div className="flag">
             <img src={country.flag} alt="" />
           </div>
