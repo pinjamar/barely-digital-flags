@@ -7,7 +7,7 @@ const baseURL = "https://restcountries.com/v2/all";
 
 export default function Countries(props) {
   const [countries, setCountry] = React.useState(null);
-  const { search } = props;
+  const { search, filtered } = props;
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
@@ -18,6 +18,13 @@ export default function Countries(props) {
   if (!countries) return null;
 
   var filteredCountries = countries;
+  var filteredRegions = countries;
+
+  if (filtered) {
+    filteredRegions = countries.filter((country) => {
+      return country.region.toLowerCase().includes(filtered.toLowerCase());
+    });
+  }
 
   if (search) {
     filteredCountries = countries.filter((country) => {
