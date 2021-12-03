@@ -35,11 +35,22 @@ export default function Countries(props) {
           <div className="flag">
             <img src={country.flag} alt="" />
           </div>
-          <h1 className="country-name">{country.name}</h1>
-          <div className="country-info">
-            <span>Population: {country.population}</span>
-            <span>Region: {country.region}</span>
-            <span>Capital: {country.capital}</span>
+          <div className="country-title-and-info">
+            <h1 className="country-name">{country.name}</h1>
+            <div className="country-info">
+              <div>
+                <span className="country-stat">Population:</span>{" "}
+                <span>{country.population}</span>
+              </div>
+              <div>
+                <span className="country-stat">Region:</span>{" "}
+                <span>{country.region}</span>
+              </div>
+              <div>
+                <span className="country-stat">Capital:</span>{" "}
+                <span>{country.capital}</span>
+              </div>
+            </div>
           </div>
         </div>
       ))}

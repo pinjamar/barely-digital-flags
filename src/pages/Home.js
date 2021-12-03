@@ -34,7 +34,7 @@ export default function Home() {
         <div className="search-wrapper">
           <input
             type="text"
-            placeholder="Search Countries"
+            placeholder=" 🔍  Search for a country..."
             onChange={(e) => setSearch(e.target.value)}
             id="searchBar"
           />
@@ -46,14 +46,13 @@ export default function Home() {
           countries={countries}
         />
       </div>
-      <div>
-        <Countries
-          search={search}
-          filtered={filteredRegion}
-          countries={countries}
-          onCountrySelected={onCountrySelected}
-        />
-      </div>
+
+      <Countries
+        search={search}
+        filtered={filteredRegion}
+        countries={countries}
+        onCountrySelected={onCountrySelected}
+      />
     </div>
   );
 }

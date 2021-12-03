@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Country from "./pages/Country";
 import useLocalStorage from "use-local-storage";
+import { ReactComponent as Moon } from "./images/moon-outline.svg";
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: Dark)").matches;
@@ -22,6 +23,7 @@ function App() {
       <div className="title">
         <h1>Where in the world?</h1>
         <button onClick={switchTheme} className="setting-theme">
+          <Moon style={{ width: "20%", height: "100%" }} />{" "}
           {theme === "Light" ? "Dark" : "Light"} Mode
         </button>
       </div>
